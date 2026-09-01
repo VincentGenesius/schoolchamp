@@ -89,4 +89,13 @@ class CompetitionController extends Controller
             'competitions' => $competitions
         ]);
     }
+
+    public function create()
+    {
+        $title = 'SchoolChamp - Add Competition';
+
+        return view('competitions.create', [
+            'title'=> $title
+        ]);
+    }
 }
