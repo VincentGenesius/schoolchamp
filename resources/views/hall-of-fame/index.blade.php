@@ -79,9 +79,9 @@
                                 <button class="text-blue-600 hover:text-blue-800 transition-colors">
                                     <span class="material-symbols-outlined text-xl">visibility</span>
                                 </button>
-                                <button class="text-emerald-600 hover:text-emerald-800 transition-colors">
+                                <a href="/hall-of-fame/edit" class="text-emerald-600 hover:text-emerald-800 transition-colors">
                                     <span class="material-symbols-outlined text-xl">edit_square</span>
-                                </button>
+                                </a>
                                 <button class="text-red-500 hover:text-red-700 transition-colors">
                                     <span class="material-symbols-outlined text-xl">delete</span>
                                 </button>

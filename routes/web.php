@@ -28,3 +28,7 @@ Route::get('/hall-of-fame', function () {
 Route::get('/hall-of-fame/create', function () {
     return view('hall-of-fame.create');
 });
+
+Route::get('/hall-of-fame/edit', function () {
+    return view('hall-of-fame.edit');
+});
