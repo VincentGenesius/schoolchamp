@@ -95,7 +95,16 @@ class CompetitionController extends Controller
         $title = 'SchoolChamp - Add Competition';
 
         return view('competitions.create', [
-            'title'=> $title
+            'title' => $title
+        ]);
+    }
+
+    public function edit($id)
+    {
+        $title = 'SchoolChamp - Edit Competition';
+
+        return view('competitions.edit', [
+            'title' => $title
         ]);
     }
 }
