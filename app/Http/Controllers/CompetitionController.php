@@ -107,4 +107,13 @@ class CompetitionController extends Controller
             'title' => $title
         ]);
     }
+
+    function show($id)
+    {
+        $title = 'SchoolChamp - Detail Competition';
+
+        return view('competitions.show', [
+            'title' => $title
+        ]);
+    }
 }
