@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
@@ -12,3 +13,7 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
     // Route::put('/{id}', [StudentController::class, 'update'])->name('update');
     // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 }); 
+
+Route::name('schedules.')->prefix('schedules')->group(function () {
+    Route::get('/', [ScheduleController::class, 'index'])->name('index');
+});
