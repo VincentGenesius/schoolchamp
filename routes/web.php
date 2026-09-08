@@ -13,13 +13,10 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
     // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 }); 
 
-Route::get('/', function () {
-    return view('overview.index');
-});
 
-Route::get('/overview', function () {
-    return view('overview.index');
-});
+
+
+
 
 Route::get('/hall-of-fame', function () {
     return view('hall-of-fame.index');
