@@ -27,7 +27,7 @@
                     <th class="w-14 px-5 py-3.5 font-bold text-center">No.</th>
                     <th class="px-5 py-3.5 font-bold">Event</th>
                     <th class="px-5 py-3.5 font-bold">Field</th>
-                    <th class="px-5 py-3.5 font-bold">Winner</th>
+                    <th class="px-5 py-3.5 font-bold">Participant</th>
                     <th class="px-5 py-3.5 font-bold">Date</th>
                     <th class="px-5 py-3.5 font-bold">Achievement</th>
                     <th class="px-5 py-3.5 text-center font-bold">Action</th>
@@ -51,7 +51,7 @@
                         </td>
 
                         <td class="px-5 py-4">
-                            {{ $item['winner'] }}
+                            {{ $item['participant'] }}
                         </td>
 
                         <td class="px-5 py-4">
@@ -82,7 +82,7 @@
 
                     </tr>
                 @empty
-                <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5] text-[#333333]">
+                    <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5] text-[#333333]">
                         <td class="px-5 py-4 text-center">1</td>
                         <td class="px-5 py-4 font-semibold">WorldSkills Shanghai 2026</td>
                         <td class="px-5 py-4">IT Software Solutions for Business</td>

@@ -16,7 +16,7 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
 
 Route::name('hall-of-fame.')->prefix('hall-of-fame')->group(function () {
     Route::get('/', [HallOfFameController::class, 'index'])->name('index');
-    // Route::get('/create', [HallOfFameController::class, 'create'])->name('create');
+    Route::get('/create', [HallOfFameController::class, 'create'])->name('create');
     // Route::get('/{id}', [HallOfFameController::class, 'show'])->name('show');
     // Route::get('/{id}/edit', [HallOfFameController::class, 'edit'])->name('edit');
     // Route::post('/', [HallOfFameController::class, 'store'])->name('store');
