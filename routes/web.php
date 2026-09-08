@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
+
+Route::name('auth.')->prefix('auth')->group(function () {
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+});
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
     Route::get('/', [CompetitionController::class, 'index'])->name('index');
