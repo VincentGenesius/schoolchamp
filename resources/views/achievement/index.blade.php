@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Hall of Fame - SchoolChamp')
+@section('title', 'Achievement - SchoolChamp')
 
 @section('content')
     
-    <h1 class="text-[#990000] text-xl font-bold mb-2">Hall of Fame (2)</h1>
+    <h1 class="text-[#990000] text-xl font-bold mb-2">Achievement (2)</h1>
 
     <div class="flex justify-between items-center">
         <form action="#" method="GET" class="relative">
@@ -16,7 +16,7 @@
             <h1 class="font-medium">Filter</h1>
         </button>
 
-        <a href="/hall-of-fame/create" class="bg-[#990000] text-white font-medium px-4 py-2 hover:bg-[#700202] transition">+ Add Achievement</a>
+        <a href="/achievement/create" class="bg-[#990000] text-white font-medium px-4 py-2 hover:bg-[#700202] transition">+ Add Achievement</a>
     </div>
 
     
@@ -70,7 +70,7 @@
                                     <span class="material-symbols-outlined">visibility</span>
                                 </a>
 
-                                <a href="/hall-of-fame/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
+                                <a href="/achievement/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
                                     <span class="material-symbols-outlined">edit_square</span>
                                 </a>
 
@@ -98,7 +98,7 @@
                                 <a href="#" class="w-9 h-9 inline-flex items-center justify-center text-indigo-600 hover:text-indigo-800 hover:bg-indigo-100 rounded-full transition" title="View">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </a>
-                                <a href="/hall-of-fame/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
+                                <a href="/achievement/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
                                     <span class="material-symbols-outlined">edit_square</span>
                                 </a>
                                 <button type="button" class="w-9 h-9 inline-flex items-center justify-center text-rose-600 hover:text-rose-800 hover:bg-rose-100 rounded-full transition" title="Delete">
@@ -123,7 +123,7 @@
                                 <a href="#" class="w-9 h-9 inline-flex items-center justify-center text-indigo-600 hover:text-indigo-800 hover:bg-indigo-100 rounded-full transition" title="View">
                                     <span class="material-symbols-outlined">visibility</span>
                                 </a>
-                                <a href="/hall-of-fame/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
+                                <a href="/achievement/edit" class="w-9 h-9 inline-flex items-center justify-center text-emerald-600 hover:text-emerald-800 hover:bg-emerald-100 rounded-full transition" title="Edit">
                                     <span class="material-symbols-outlined">edit_square</span>
                                 </a>
                                 <button type="button" class="w-9 h-9 inline-flex items-center justify-center text-rose-600 hover:text-rose-800 hover:bg-rose-100 rounded-full transition" title="Delete">
