@@ -14,7 +14,7 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
     // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 }); 
 
-Route::name('achievement.')->prefix('achievement')->group(function () {
+Route::name('achievements.')->prefix('achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('index');
     Route::get('/create', [AchievementController::class, 'create'])->name('create');
     Route::post('/', [AchievementController::class, 'store'])->name('store');

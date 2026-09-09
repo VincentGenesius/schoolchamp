@@ -9,7 +9,7 @@
             <p class="text-sm text-gray-500">Update event details, participant information, or award results.</p>
         </div>
 
-        <form action="{{ route('achievement.update', $achievement['id'] ?? 1) }}" method="POST">
+        <form action="{{ route('achievements.update', $achievement['id'] ?? 1) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -80,7 +80,7 @@
             </div>
 
             <div class="flex items-center justify-end gap-4 pt-4">
-                <a href="{{ route('achievement.index') }}"
+                <a href="{{ route('achievements.index') }}"
                     class="px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-[#F3F3FF] transition">
                     Cancel
                 </a>

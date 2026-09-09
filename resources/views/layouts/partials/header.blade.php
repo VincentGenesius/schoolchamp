@@ -9,7 +9,7 @@
             <a href="/overview" class="text-white/55 hover:text-white">Overview</a>
             <a href="/competitions" class="text-white/55 hover:text-white">Competitions</a>
             <a href="#" class="text-white/55 hover:text-white">Schedule</a>
-            <a href="/achievement" class="text-white/55 hover:text-white">Achievement</a>
+            <a href="/achievements" class="text-white/55 hover:text-white">Achievement</a>
         </nav>
 
         <div class="flex gap-2 items-center">
