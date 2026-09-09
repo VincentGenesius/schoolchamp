@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HallOfFameController extends Controller
+class AchievementController extends Controller
 {
     public function index()
     {
-        $HallOfFameList = [
+        $AchievementList = [
             [
                 'id'          => 1,
                 'event'       => 'WorldSkills Shanghai 2026',
@@ -27,27 +27,29 @@ class HallOfFameController extends Controller
             ],
         ];
 
-        return view('Hall-of-fame.index', [
-            'title'          => 'Hall of Fame',
-            'HallOfFameList' => $HallOfFameList,
+        return view('achievement.index', [
+            'title'           => 'Hall of Fame',
+            'AchievementList' => $AchievementList,
         ]);
     }
 
     public function create()
     {
-        return view('Hall-of-fame.create', [
-            'title' => 'Add New Achievement',
+        return view('achievement.create', [
+            'title' => 'Add New Hall of Fame',
         ]);
     }
 
     public function store(Request $request)
     {
-        return redirect()->route('Hall-of-fame.index');
+        // Validasi dan simpan data (nanti dihubungkan ke Database/Model)
+        return redirect()->route('achievement.index');
     }
 
     public function edit($id = null)
     {
-        $HallOfFame = [
+        // Dummy data untuk dikirim ke view edit
+        $Achievement = [
             'id'          => $id ?? 1,
             'event'       => 'International Physics Olympiad (IPhO) 2026',
             'field'       => 'Theoretical & Experimental Physics',
@@ -56,19 +58,21 @@ class HallOfFameController extends Controller
             'achievement' => '2nd Winner - Silver Medal',
         ];
 
-        return view('Hall-of-fame.edit', [
-            'title'      => 'Edit Achievement',
-            'HallOfFame' => $HallOfFame,
+        return view('achievement.edit', [
+            'title'      => 'Edit Hall of Fame',
+            'Achievement' => $Achievement,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        return redirect()->route('Hall-of-fame.index');
+        // Logika update data
+        return redirect()->route('achievement.index');
     }
 
     public function destroy($id)
     {
-        return redirect()->route('Hall-of-fame.index');
+        // Logika hapus data
+        return redirect()->route('achievement.index');
     }
 }

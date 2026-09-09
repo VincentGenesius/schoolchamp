@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompetitionController;
-use App\Http\Controllers\HallOfFameController;
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
@@ -14,12 +14,12 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
     // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 }); 
 
-Route::name('hall-of-fame.')->prefix('hall-of-fame')->group(function () {
-    Route::get('/', [HallOfFameController::class, 'index'])->name('index');
-    Route::get('/create', [HallOfFameController::class, 'create'])->name('create');
-    // Route::get('/{id}', [HallOfFameController::class, 'show'])->name('show');
-    // Route::get('/{id}/edit', [HallOfFameController::class, 'edit'])->name('edit');
-    // Route::post('/', [HallOfFameController::class, 'store'])->name('store');
+Route::name('achievement.')->prefix('achievement')->group(function () {
+    Route::get('/', [AchievementController::class, 'index'])->name('index');
+    // Route::get('/create', [AchievementController::class, 'create'])->name('create');
+    // Route::get('/{id}', [AchievementController::class, 'show'])->name('show');
+    // Route::get('/{id}/edit', [AchievementController::class, 'edit'])->name('edit');
+    // Route::post('/', [AchievementController::class, 'store'])->name('store');
     // Route::put('/{id}', [StudentController::class, 'update'])->name('update');
     // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
 }); 
