@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/overviews');
 
 Route::name('overviews.')->prefix('overviews')->group(function () {
-    Route::get('/', [OverflowException::class, 'index'])->name('index');
+    Route::get('/', [OverviewController::class, 'index'])->name('index');
 });
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
