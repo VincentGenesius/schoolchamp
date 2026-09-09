@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="flex items-center justify-end gap-4 pt-4">
-                <a href="/hall-of-fame"
+                <a href="/achievements"
                     class="px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-[#F3F3FF] transition">
                     Cancel
                 </a>
