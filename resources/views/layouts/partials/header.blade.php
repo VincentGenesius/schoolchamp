@@ -6,7 +6,7 @@
         </a>
 
         <nav class="hidden gap-6 text-sm md:flex">
-            <a href="/overview" class="text-white/55 hover:text-white">Overview</a>
+            <a href="/overviews" class="text-white/55 hover:text-white">Overview</a>
             <a href="/competitions" class="text-white/55 hover:text-white">Competitions</a>
             <a href="#" class="text-white/55 hover:text-white">Schedule</a>
             <a href="/achievements" class="text-white/55 hover:text-white">Achievement</a>

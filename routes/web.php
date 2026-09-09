@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\OverviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
@@ -23,3 +24,12 @@ Route::name('achievements.')->prefix('achievements')->group(function () {
     Route::put('/{id?}', [AchievementController::class, 'update'])->name('update');
     Route::delete('/{id}', [AchievementController::class, 'destroy'])->name('destroy');
 });
+
+
+Route::name('overviews.')->prefix('overviews')->group(function () {
+    Route::get('/', [OverviewController::class, 'index'])->name('index');
+});
+
+
+
+
