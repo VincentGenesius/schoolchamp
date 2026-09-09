@@ -16,7 +16,7 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
 
 Route::name('achievement.')->prefix('achievement')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('index');
-    // Route::get('/create', [AchievementController::class, 'create'])->name('create');
+    Route::get('/create', [AchievementController::class, 'create'])->name('create');
     // Route::get('/{id}', [AchievementController::class, 'show'])->name('show');
     // Route::get('/{id}/edit', [AchievementController::class, 'edit'])->name('edit');
     // Route::post('/', [AchievementController::class, 'store'])->name('store');
