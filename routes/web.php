@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompetitionController;
+use App\Http\Controllers\OverviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('competitions.')->prefix('competitions')->group(function () {
@@ -15,8 +16,8 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
 
 
 
-Route::get('/overview', function () {
-    return view('overview.index');
+Route::name('overviews.')->prefix('overviews')->group(function () {
+    Route::get('/', [OverviewController::class, 'index'])->name('index');
 });
 
 
