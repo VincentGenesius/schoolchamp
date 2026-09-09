@@ -17,9 +17,9 @@ Route::name('competitions.')->prefix('competitions')->group(function () {
 Route::name('achievement.')->prefix('achievement')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('index');
     Route::get('/create', [AchievementController::class, 'create'])->name('create');
-    // Route::get('/{id}', [AchievementController::class, 'show'])->name('show');
-    // Route::get('/{id}/edit', [AchievementController::class, 'edit'])->name('edit');
-    // Route::post('/', [AchievementController::class, 'store'])->name('store');
-    // Route::put('/{id}', [StudentController::class, 'update'])->name('update');
-    // Route::delete('/{id}', [StudentController::class, 'destroy'])->name('destroy');
-}); 
+    Route::post('/', [AchievementController::class, 'store'])->name('store');
+    Route::get('/edit', [AchievementController::class, 'edit'])->name('edit');
+    Route::get('/{id}', [AchievementController::class, 'show'])->name('show');
+    Route::put('/{id?}', [AchievementController::class, 'update'])->name('update');
+    Route::delete('/{id}', [AchievementController::class, 'destroy'])->name('destroy');
+});

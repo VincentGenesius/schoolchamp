@@ -8,7 +8,7 @@ class AchievementController extends Controller
 {
     public function index()
     {
-        $AchievementList = [
+        $achievementList = [
             [
                 'id'          => 1,
                 'event'       => 'WorldSkills Shanghai 2026',
@@ -28,51 +28,54 @@ class AchievementController extends Controller
         ];
 
         return view('achievement.index', [
-            'title'           => 'Hall of Fame',
-            'AchievementList' => $AchievementList,
+            'title'           => 'Achievement',
+            'hallOfFameList'  => $achievementList,
+            'achievementList' => $achievementList,
         ]);
     }
 
     public function create()
     {
         return view('achievement.create', [
-            'title' => 'Add New Hall of Fame',
+            'title' => 'Add New Achievement',
         ]);
     }
 
     public function store(Request $request)
     {
-        // Validasi dan simpan data (nanti dihubungkan ke Database/Model)
         return redirect()->route('achievement.index');
+    }
+
+    public function show($id)
+    {
+        // Menangani jika route memanggil URL /achievement/{id} atau /achievement/edit dari resource route
+        return $this->edit($id);
     }
 
     public function edit($id = null)
     {
-        // Dummy data untuk dikirim ke view edit
-        $Achievement = [
+        $achievement = [
             'id'          => $id ?? 1,
-            'event'       => 'International Physics Olympiad (IPhO) 2026',
-            'field'       => 'Theoretical & Experimental Physics',
-            'participant' => 'Julian Vance',
-            'date'        => '2026-05-18',
-            'achievement' => '2nd Winner - Silver Medal',
+            'event'       => 'WorldSkills Shanghai 2026',
+            'field'       => 'IT Software Solutions for Business',
+            'participant' => 'Klain Xee',
+            'date'        => '2026-05-13',
+            'achievement' => '1st Winner - Gold Medal',
         ];
 
         return view('achievement.edit', [
-            'title'      => 'Edit Hall of Fame',
-            'Achievement' => $Achievement,
+            'title'       => 'Edit Achievement',
+            'achievement' => $achievement,
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id = null)
     {
-        // Logika update data
         return redirect()->route('achievement.index');
     }
 
     public function destroy($id)
     {
-        // Logika hapus data
         return redirect()->route('achievement.index');
     }
 }
