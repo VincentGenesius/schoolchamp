@@ -9,6 +9,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <!-- Competitions -->
         <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
             <div class="w-12 h-12 bg-rose-50 text-[#990000] flex items-center justify-center rounded shrink-0">
                 <span class="material-symbols-outlined text-2xl">workspace_premium</span>
@@ -62,7 +63,7 @@
             
             <div class="flex flex-col gap-5">
                 <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-[56px]">
+                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
                         <span class="block text-[10px] font-bold uppercase tracking-wider">MAY</span>
                         <span class="block text-lg font-bold leading-none">25</span>
                     </div>
@@ -73,7 +74,7 @@
                 </div>
 
                 <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-[56px]">
+                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
                         <span class="block text-[10px] font-bold uppercase tracking-wider">JUN</span>
                         <span class="block text-lg font-bold leading-none">08</span>
                     </div>
@@ -84,7 +85,7 @@
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-[56px]">
+                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
                         <span class="block text-[10px] font-bold uppercase tracking-wider">JUN</span>
                         <span class="block text-lg font-bold leading-none">15</span>
                     </div>
