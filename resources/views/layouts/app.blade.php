@@ -12,17 +12,21 @@
 
 <body class="flex min-h-screen flex-col bg-[#F7F6F2]">
     {{-- Header Start--}}
-    @include('layouts.partials.header')
+    @unless(isset($hideLayout) && $hideLayout)
+        @include('layouts.partials.header') 
+    @endunless
     {{-- Header End --}}
 
     {{-- Content Start --}}
-    <main class="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
+    <main class="{{ (isset($hideLayout) && $hideLayout) ? '' : 'mx-auto w-full max-w-6xl flex-1 px-6 py-10' }}">
         @yield('content')
     </main>
     {{-- Content End --}}
 
     {{-- Footer Start --}}
-    @include('layouts.partials.footer')
+    @unless(isset($hideLayout) && $hideLayout)
+        @include('layouts.partials.footer') 
+    @endunless
     {{-- Footer End --}}
 </body>
 </html>

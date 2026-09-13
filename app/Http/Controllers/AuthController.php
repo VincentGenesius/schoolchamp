@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function register()
+    public function login()
     {
-        $title = 'SchoolChamp - Register';
+        $title = 'SchoolChamp - Login';
 
-        return view('auth.register', [
+        return view('auth.login', [
             'title' => $title
         ]);
     }
