@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-end gap-4 pt-4 border-t border-gray-200">
+            <div class="flex items-center justify-end gap-4 mt-4 pt-4 border-t border-gray-200">
                 <button type="submit" class="px-6 py-2.5 text-sm font-semibold text-[#990000] hover:bg-[#F3F3FF] transition">
                     Delete
                 </button>
