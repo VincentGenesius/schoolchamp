@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('auth.')->prefix('auth')->group(function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
 });
 
 Route::name('competitions.')->prefix('competitions')->group(function () {

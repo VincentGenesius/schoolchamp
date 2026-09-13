@@ -14,4 +14,13 @@ class AuthController extends Controller
             'title' => $title
         ]);
     }
+
+    public function register()
+    {
+        $title = 'SchoolChamp - Register';
+
+        return view('auth.register', [
+            'title' => $title
+        ]);
+    }
 }
