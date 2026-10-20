@@ -1,3 +1,8 @@
+<?php
+use App\Enums\StatusCompetitionEnum;
+
+?>
+
 @extends('layouts.app')
 
 @section('title', 'Add New Achievement - SchoolChamp')

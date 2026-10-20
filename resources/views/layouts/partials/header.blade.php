@@ -6,10 +6,10 @@
         </a>
 
         <nav class="hidden gap-6 text-sm md:flex">
-            <a href="#" class="text-white/55 hover:text-white">Overview</a>
-            <a href="#" class="text-white/55 hover:text-white">Competitions</a>
-            <a href="#" class="text-white/55 hover:text-white">Schedule</a>
-            <a href="#" class="text-white/55 hover:text-white">Achievement</a>
+            <a href="{{ route('overviews.index') }}" class="text-white/55 hover:text-white">Overview</a>
+            <a href="{{ route('competitions.index') }}" class="text-white/55 hover:text-white">Competitions</a>
+            <a href="{{ route('schedules.index') }}" class="text-white/55 hover:text-white">Schedule</a>
+            <a href="{{ route('achievements.index') }}" class="text-white/55 hover:text-white">Achievement</a>
         </nav>
 
         <div class="flex gap-2 items-center">
