@@ -28,7 +28,9 @@ class UpdateRequest extends FormRequest
             'participant' => ['required', 'string'],
             'advisor' => ['required', 'string'],
             'date' => ['required', 'date'],
-            'status' => ['required', 'in:UPCOMING,ONGOING,FINISHED']
+            'status' => ['required', 'in:UPCOMING,ONGOING,FINISHED'],
+            'location' => ['required', 'string', 'max:255'],
+            'achievement' => ['required', 'string', 'max:255']
         ];
     }
 }

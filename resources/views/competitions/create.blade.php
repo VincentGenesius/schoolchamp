@@ -77,6 +77,29 @@
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
+                        LOCATION
+                    </label>
+                    <input value="{{ old('location') }}" type="text" name="location" id="location" placeholder="e.g Shanghai, China"
+                        class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
+                        required>
+                    @error('location')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
+                        ACHIEVEMENT
+                    </label>
+                    <input value="{{ old('achievement') }}" type="text" name="achievement" id="achievement" placeholder="e.g 1st Winner - Gold Medal"
+                        class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition">
+                    @error('achievement')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
 
             <h1 class="border-l-3 border-[#990000] px-2 mb-4 text-lg font-bold">Participant & Advisory</h1>

@@ -28,7 +28,7 @@
             </div>
             <div>
                 <p class="text-sm font-semibold text-gray-700">Achievements</p>
-                <h3 class="text-2xl font-bold text-[#16213A]">?</h3>
+                <h3 class="text-2xl font-bold text-[#16213A]">{{ $competitions->unique('achievement')->count() }}</h3>
                 <p class="text-xs text-gray-400">All Time</p>
             </div>
         </div>
@@ -61,40 +61,28 @@
         <!-- Recent Competitions -->
         <div class="bg-white border border-[#d9d9d9] p-6">
             <h2 class="text-lg font-bold text-[#16213A] mb-6">Recent Competitions</h2>
-            
+
+
             <div class="flex flex-col gap-5">
-                <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
-                        <span class="block text-[10px] font-bold uppercase tracking-wider">MAY</span>
-                        <span class="block text-lg font-bold leading-none">25</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-[#16213A] text-sm">National Debate Championship 2024</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">May 25, 2024</p>
-                    </div>
-                </div>
+                @forelse ($recentCompetitions as $competition)
+                    @php
+                        $date = \Carbon\Carbon::parse($competition->date);
+                    @endphp
 
-                <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
-                        <span class="block text-[10px] font-bold uppercase tracking-wider">JUN</span>
-                        <span class="block text-lg font-bold leading-none">08</span>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-[#16213A] text-sm">Programming Contest Indonesia 2024</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">June 08, 2024</p>
-                    </div>
-                </div>
+                    <div class="flex items-center gap-4 pb-4 border-b border-gray-100">
+                        <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
+                            <span class="block text-[10px] font-bold uppercase tracking-wider">{{ $date->format('M') }}</span>
+                            <span class="block text-lg font-bold leading-none">{{ $date->format('d') }}</span>
+                        </div>
 
-                <div class="flex items-center gap-4">
-                    <div class="bg-rose-50 text-[#990000] rounded p-2.5 text-center min-w-14">
-                        <span class="block text-[10px] font-bold uppercase tracking-wider">JUN</span>
-                        <span class="block text-lg font-bold leading-none">15</span>
+                        <div>
+                            <h4 class="font-bold text-[#16213A] text-sm">{{ $competition->event }}</h4>
+                            <p class="text-xs text-gray-400 mt-0.5">{{ $date->format('F d, Y') }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-[#16213A] text-sm">Science Fair National Level</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">June 15, 2024</p>
-                    </div>
-                </div>
+                @empty
+                    <p class="text-xs text-gray-400 text-center">No competition data added yet</p>
+                @endforelse
             </div>
         </div>
 
@@ -109,7 +97,7 @@
                         </div>
                         <span class="font-bold text-[#16213A] text-sm">Finished</span>
                     </div>
-                    <span class="text-xl font-bold text-[#16213A]">2</span>
+                    <span class="text-xl font-bold text-[#16213A]">{{ $totalFinished }}</span>
                 </div>
 
                 <div class="flex items-center justify-between pb-4 border-b border-gray-100">
@@ -119,7 +107,7 @@
                         </div>
                         <span class="font-bold text-[#16213A] text-sm">Ongoing</span>
                     </div>
-                    <span class="text-xl font-bold text-[#16213A]">1</span>
+                    <span class="text-xl font-bold text-[#16213A]">{{ $totalOngoing }}</span>
                 </div>
 
                 <div class="flex items-center justify-between">
@@ -129,7 +117,7 @@
                         </div>
                         <span class="font-bold text-[#16213A] text-sm">Upcoming</span>
                     </div>
-                    <span class="text-xl font-bold text-[#16213A]">5</span>
+                    <span class="text-xl font-bold text-[#16213A]">{{ $totalUpcoming }}</span>
                 </div>
             </div>
         </div>
@@ -138,44 +126,28 @@
     <div class="bg-white border border-[#d9d9d9] p-6">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-lg font-bold text-[#16213A]">Recent Achievements</h2>
-            <a href="{{ route('achievements.index') }}" class="inline-flex items-center gap-1 text-xs text-[#990000] font-semibold hover:underline">
+            <a href="{{ route('achievements.index') }}"
+                class="inline-flex items-center gap-1 text-xs text-[#990000] font-semibold">
                 View All <span class="material-symbols-outlined text-xs">arrow_forward</span>
             </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="flex items-center gap-4 pr-4 md:border-r border-gray-100">
-                <div class="w-12 h-12 bg-rose-50 text-[#990000] flex items-center justify-center rounded shrink-0">
-                    <span class="material-symbols-outlined text-2xl">workspace_premium</span>
-                </div>
-                <div>
-                    <h4 class="font-bold text-[#16213A] text-sm">1st Place</h4>
-                    <p class="text-xs text-gray-500">National science olympiade 2024</p>
-                    <p class="text-xs text-gray-400 mt-0.5">May 20, 2024</p>
-                </div>
-            </div>
+            @forelse ($recentAchievements as $competition)
 
-            <div class="flex items-center gap-4 pr-4 md:border-r border-gray-100">
-                <div class="w-12 h-12 bg-indigo-50 text-indigo-500 flex items-center justify-center rounded shrink-0">
-                    <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                <div class="flex items-center gap-4 pr-4 md:border-r border-gray-100">
+                    <div class="w-12 h-12 bg-rose-50 text-[#990000] flex items-center justify-center rounded shrink-0">
+                        <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#16213A] text-sm">{{ $competition->achievement }}</h4>
+                        <p class="text-xs text-gray-500">{{ $competition->event }}</p>
+                        <p class="text-xs text-gray-400 mt-1">by <b>{{ $competition->participant }}</b></p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-[#16213A] text-sm">Best Team</h4>
-                    <p class="text-xs text-gray-500">Robotics Competition Regional 2024</p>
-                    <p class="text-xs text-gray-400 mt-0.5">April 21, 2024</p>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-emerald-50 text-emerald-500 flex items-center justify-center rounded shrink-0">
-                    <span class="material-symbols-outlined text-2xl">workspace_premium</span>
-                </div>
-                <div>
-                    <h4 class="font-bold text-[#16213A] text-sm">Honorable Mention</h4>
-                    <p class="text-xs text-gray-500">LKS Competition 2026</p>
-                    <p class="text-xs text-gray-400 mt-0.5">August 2, 2026</p>
-                </div>
-            </div>
+            @empty
+                <p class="text-xs text-gray-400 text-center">No competition data added yet</p>
+            @endforelse
         </div>
     </div>
 @endsection

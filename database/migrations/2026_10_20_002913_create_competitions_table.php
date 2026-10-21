@@ -24,6 +24,8 @@ return new class extends Migration
                 StatusCompetitionEnum::UPCOMING->value,
                 StatusCompetitionEnum::FINISHED->value
             ])->default(StatusCompetitionEnum::UPCOMING->value);
+            $table->string('location');
+            $table->string('achievement');
             $table->timestamps();
         });
     }
