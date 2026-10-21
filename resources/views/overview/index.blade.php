@@ -9,48 +9,49 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+
         <!-- Competitions -->
         <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
-            <div class="w-12 h-12 bg-rose-50 text-[#990000] flex items-center justify-center rounded shrink-0">
+            <div class="w-16 h-16 bg-rose-50 text-[#990000] flex items-center justify-center rounded shrink-0">
                 <span class="material-symbols-outlined text-2xl">workspace_premium</span>
             </div>
             <div>
                 <p class="text-sm font-semibold text-gray-700">Competitions</p>
-                <h3 class="text-2xl font-bold text-[#16213A]">8</h3>
+                <h3 class="text-2xl font-bold text-[#16213A]">{{ $competitions->count() }}</h3>
                 <p class="text-xs text-gray-400">All Time</p>
             </div>
         </div>
 
         <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
-            <div class="w-12 h-12 bg-indigo-50 text-indigo-600 flex items-center justify-center rounded shrink-0">
-                <span class="material-symbols-outlined text-2xl">person</span>
-            </div>
-            <div>
-                <p class="text-sm font-semibold text-gray-700">Participants</p>
-                <h3 class="text-2xl font-bold text-[#16213A]">8</h3>
-                <p class="text-xs text-gray-400">Students</p>
-            </div>
-        </div>
-
-        <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
-            <div class="w-12 h-12 bg-amber-50 text-amber-500 flex items-center justify-center rounded shrink-0">
+            <div class="w-16 h-16 bg-amber-50 text-amber-500 flex items-center justify-center rounded shrink-0">
                 <span class="material-symbols-outlined text-2xl">emoji_events</span>
             </div>
             <div>
                 <p class="text-sm font-semibold text-gray-700">Achievements</p>
-                <h3 class="text-2xl font-bold text-[#16213A]">2</h3>
+                <h3 class="text-2xl font-bold text-[#16213A]">?</h3>
                 <p class="text-xs text-gray-400">All Time</p>
+            </div>
+        </div>
+
+        <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
+            <div class="w-16 h-16 bg-indigo-50 text-indigo-600 flex items-center justify-center rounded shrink-0">
+                <span class="material-symbols-outlined text-2xl">person</span>
+            </div>
+            <div>
+                <p class="text-sm font-semibold text-gray-700">Participants</p>
+                <h3 class="text-2xl font-bold text-[#16213A]">{{ $competitions->unique('participant')->count() }}</h3>
+                <p class="text-xs text-gray-400">Students</p>
             </div>
         </div>
 
         <!-- Advisors -->
         <div class="bg-white border border-[#d9d9d9] p-6 flex items-center gap-4">
-            <div class="w-12 h-12 bg-emerald-50 text-emerald-500 flex items-center justify-center rounded shrink-0">
+            <div class="w-16 h-16 bg-emerald-50 text-emerald-500 flex items-center justify-center rounded shrink-0">
                 <span class="material-symbols-outlined text-2xl">school</span>
             </div>
             <div>
                 <p class="text-sm font-semibold text-gray-700">Advisors</p>
-                <h3 class="text-2xl font-bold text-[#16213A]">10</h3>
+                <h3 class="text-2xl font-bold text-[#16213A]">{{ $competitions->unique('advisor')->count() }}</h3>
                 <p class="text-xs text-gray-400">Teachers</p>
             </div>
         </div>
