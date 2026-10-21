@@ -9,7 +9,7 @@
             <p class="text-sm">Update event details, schedule, or registration status.</p>
         </div>
 
-        <form action="" method="POST">
+        <form action="{{ route('competitions.update', ['competition' => $competition->id]) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -20,7 +20,7 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         COMPETITION NAME
                     </label>
-                    <input type="text" name="event" value="WorldSkills Shanghai 2026"
+                    <input value="{{ old('event', $competition->event) }}" type="text" name="event" value="WorldSkills Shanghai 2026"
                         placeholder="e.g National Science Olympiad 2026"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
@@ -30,7 +30,7 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         FIELD
                     </label>
-                    <input type="text" name="field" value="IT Software Solutions for Business"
+                    <input value="{{ old('field', $competition->field) }}" type="text" name="field" value="IT Software Solutions for Business"
                         placeholder="e.g IT Software Solutions for Business"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
@@ -42,7 +42,7 @@
                             START DATE
                         </label>
                         <div class="relative flex items-center">
-                            <input type="date" name="date" value="{{ old('date', $competition['date'] ?? '') }}"
+                            <input value="{{ old('date', $competition->date) }}" type="date" name="date"
                                 placeholder="DD/MM/YY"
                                 class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                                 required>
@@ -58,10 +58,9 @@
                             <select name="status"
                                 class="w-full bg-[#f4f5fd] border border-gray-200 pl-4 pr-10 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#990000] focus:bg-white transition appearance-none cursor-pointer"
                                 required value="Finished">
-                                <option value="" disabled>Select Status</option>
-                                <option value="Upcoming" {{ old('status', $competition['status'] ?? '') === 'Upcoming' ? 'selected' : '' }}>Upcoming</option>
-                                <option value="Ongoing" {{ old('status', $competition['status'] ?? '') === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                <option value="Finished" {{ old('status', $competition['status'] ?? '') === 'Finished' ? 'selected' : '' }}>Finished</option>
+                                @foreach (\App\Enums\StatusCompetitionEnum::cases() as $status)
+                                    <option value="{{ $status->value }}" {{ old('status', $competition->status ?? '') === $status->value ? 'selected' : '' }}>{{ $status->label() }}</option>
+                                @endforeach
                             </select>
 
                             <span
@@ -80,8 +79,7 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         PARTICIPANT NAME
                     </label>
-                    <input type="text" name="participant"
-                        value="Kaelen Voss" placeholder="e.g Klain Xee"
+                    <input value="{{ old('participant', $competition->participant) }}" type="text" name="participant" placeholder="e.g Klain Xee"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
                 </div>
@@ -90,7 +88,7 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         ADVISORY NAME
                     </label>
-                    <input type="text" name="advisor" value="Elena Rostova"
+                    <input value="{{ old('advisor', $competition->advisor) }}" type="text" name="advisor"
                         placeholder="e.g Zavier Ricks"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>

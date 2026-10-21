@@ -1,15 +1,15 @@
 <header class="bg-[#990000] text-white">
 
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="" class="flex items-center gap-3">
+        <a href="{{ route('overviews.index') }}" class="flex items-center gap-3">
             <img src="/images/logo-schoolchamp.png" alt="Logo SchoolChamp" class="w-80 h-12">
         </a>
 
         <nav class="hidden gap-6 text-sm md:flex">
-            <a href="{{ route('overviews.index') }}" class="text-white/55 hover:text-white">Overview</a>
-            <a href="{{ route('competitions.index') }}" class="text-white/55 hover:text-white">Competitions</a>
-            <a href="{{ route('schedules.index') }}" class="text-white/55 hover:text-white">Schedule</a>
-            <a href="{{ route('achievements.index') }}" class="text-white/55 hover:text-white">Achievement</a>
+            <a href="{{ route('overviews.index') }}" class="text-white/55 hover:text-white transition-colors">Overview</a>
+            <a href="{{ route('competitions.index') }}" class="text-white/55 hover:text-white transition-colors">Competitions</a>
+            <a href="{{ route('schedules.index') }}" class="text-white/55 hover:text-white transition-colors">Schedule</a>
+            <a href="{{ route('achievements.index') }}" class="text-white/55 hover:text-white transition-colors">Achievement</a>
         </nav>
 
         <div class="flex gap-2 items-center">

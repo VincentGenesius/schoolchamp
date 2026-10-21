@@ -9,7 +9,8 @@
             <p class="text-sm">Enter event details, schedule, and registration information.</p>
         </div>
 
-        <form action="" method="POST">
+        <!-- FORM COMPETITIONS -->
+        <form action="{{ route('competitions.store') }}" method="POST">
             @csrf
 
             <h1 class="border-l-3 border-[#990000] px-2 mb-4 text-lg font-bold">Event Details</h1>
@@ -19,18 +20,24 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         COMPETITION NAME
                     </label>
-                    <input type="text" name="event" placeholder="e.g National Science Olympiad 2026"
+                    <input value="{{ old('event') }}" type="text" name="event" id="event" placeholder="e.g National Science Olympiad 2026"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
+                    @error('event')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         FIELD
                     </label>
-                    <input type="text" name="field" placeholder="e.g IT Software Solutions for Business"
+                    <input value="{{ old('field') }}" type="text" name="field" id="field" placeholder="e.g IT Software Solutions for Business"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
+                    @error('field')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -39,9 +46,12 @@
                             START DATE
                         </label>
                         <div class="relative flex items-center">
-                            <input type="date" name="date" placeholder="DD/MM/YY"
+                            <input value="{{ old('date') }}" type="date" name="date" id="date" placeholder="DD/MM/YY"
                                 class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                                 required>
+                            @error('date')
+                                <span class="py-2 text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
@@ -51,13 +61,13 @@
                         </label>
 
                         <div class="relative flex items-center">
-                            <select name="status"
+                            <select name="status" id="status"
                                 class="w-full bg-[#f4f5fd] border border-gray-200 pl-4 pr-10 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#990000] focus:bg-white transition appearance-none cursor-pointer"
                                 required>
-                                <option value="" disabled selected>e.g Upcoming</option>
-                                <option value="Upcoming">Upcoming</option>
-                                <option value="Ongoing">Ongoing</option>
-                                <option value="Finished">Finished</option>
+                                
+                                @foreach (\App\Enums\StatusCompetitionEnum::cases() as $status)
+                                    <option value="{{ $status->value }}">{{ $status->label() }}</option>
+                                @endforeach
                             </select>
 
                             <span
@@ -76,23 +86,29 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         PARTICIPANT NAME
                     </label>
-                    <input type="text" name="participant" placeholder="e.g Klain Xee"
+                    <input value="{{ old('participant') }}" type="text" name="participant" id="participant" placeholder="e.g Klain Xee"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
+                    @error('participant')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div>
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         ADVISORY NAME
                     </label>
-                    <input type="text" name="advisor" placeholder="e.g Zavier Ricks"
+                    <input value="{{ old('advisor') }}" type="text" name="advisor" id="advisor" placeholder="e.g Zavier Ricks"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
+                    @error('advisor')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
             <div class="flex items-center justify-end gap-4 pt-4 border-t border-gray-200">
-                <a href="#"
+                <a href="{{ route('competitions.index') }}"
                     class="px-6 py-2.5 text-sm font-semibold text-gray-700 hover:bg-[#F3F3FF] transition">
                     Cancel
                 </a>
@@ -103,5 +119,6 @@
                 </button>
             </div>
         </form>
+
     </div>
 @endsection

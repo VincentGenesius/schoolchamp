@@ -21,11 +21,11 @@ Route::name('overviews.')->prefix('overviews')->group(function () {
 Route::name('competitions.')->prefix('competitions')->group(function () {
     Route::get('/', [CompetitionController::class, 'index'])->name('index');
     Route::get('/create', [CompetitionController::class, 'create'])->name('create');
-    Route::get('/{id}/edit', [CompetitionController::class, 'edit'])->name('edit');
-    Route::get('/{id}', [CompetitionController::class, 'show'])->name('show');
-    Route::post('/competitions', [CompetitionController::class, 'store'])->name('store');
-    Route::put('/{id}', [CompetitionController::class, 'update'])->name('update');
-    Route::delete('/{id}', [CompetitionController::class, 'destroy'])->name('destroy');
+    Route::post('/', [CompetitionController::class, 'store'])->name('store');
+    Route::get('/{competition}', [CompetitionController::class, 'show'])->name('show');
+    Route::get('/{competition}/edit', [CompetitionController::class, 'edit'])->name('edit');
+    Route::put('/{competition}', [CompetitionController::class, 'update'])->name('update');
+    Route::delete('/{competition}', [CompetitionController::class, 'destroy'])->name('destroy');
 }); 
 
 Route::name('schedules.')->prefix('schedules')->group(function () {
