@@ -114,4 +114,6 @@
             </tbody>
         </table>
     </div>
+
+    <div class="mt-4">{{ $competitions->links() }}</div>
 @endsection

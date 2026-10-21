@@ -12,8 +12,8 @@ class CompetitionController extends Controller
     public function index()
     {
         $title = "SchoolChamp - Competitions";
-        $competitions = Competition::all();
-
+        $competitions = Competition::latest()->paginate(5);
+        
         return view('competitions.index', [
             'title' => $title,
             'competitions' => $competitions
