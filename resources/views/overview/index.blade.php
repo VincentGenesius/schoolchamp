@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Overview - SchoolChamp')
+@section('title', $title)
 
 @section('content')
     <div class="mb-6">

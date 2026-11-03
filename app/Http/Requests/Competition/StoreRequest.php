@@ -30,7 +30,8 @@ class StoreRequest extends FormRequest
             'date' => ['required', 'date'],
             'status' => ['required', 'in:UPCOMING,ONGOING,FINISHED'],
             'location' => ['required', 'string', 'max:255'],
-            'achievement' => ['required', 'string', 'max:255']
+            'achievement' => ['required', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:2048'],
         ];
     }
 }

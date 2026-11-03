@@ -38,6 +38,16 @@
             </div>
 
             <div class="flex items-center gap-4">
+                <h1 class="w-50 text-slate-400">LOCATION</h1>
+                <p class="bg-[#F3F3FF] p-3 w-full font-semibold text-[#990000] border border-[#990000]">{{ $competition['location'] }}</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <h1 class="w-50 text-slate-400">ACHIEVEMENT</h1>
+                <p class="bg-[#F3F3FF] p-3 w-full font-semibold text-[#990000] border border-[#990000]">{{ $competition['achievement'] }}</p>
+            </div>
+
+            <div class="flex items-center gap-4">
                 <h1 class="w-50 text-slate-400">PARTICIPANT NAME</h1>
                 <p class="bg-[#F3F3FF] p-3 w-full font-semibold text-[#990000] border border-[#990000]">{{ $competition['participant'] }}</p>
             </div>

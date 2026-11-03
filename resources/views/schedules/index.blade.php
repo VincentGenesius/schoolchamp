@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <h1 class="text-[#990000] text-xl font-bold mb-2">Schedule (6)</h1>
+    <h1 class="text-[#990000] text-xl font-bold mb-2">Schedule ({{ $schedules->filter(fn($item) => in_array($item->status, ['UPCOMING', 'ONGOING']))->count() }})</h1>
 
     <div class="flex justify-between items-center">
         <form action="#" method="GET" class="relative">
@@ -19,14 +19,14 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mt-4">
         @foreach ($schedules as $schedule)
-            @if (in_array($schedule['status'], ['Ongoing', 'Upcoming']))
+            @if (in_array($schedule['status'], ['ONGOING', 'UPCOMING']))
                 <div class="bg-white border border-[#d9d9d9] relative overflow-hidden flex flex-col justify-between p-5 min-h-55">
 
                     <div class="absolute left-0 top-0 bottom-0 w-3 bg-[#990000]"></div>
 
                     <div class="pl-2">
                         <div class="mb-3">
-                            @if ($schedule['status'] === 'Ongoing')
+                            @if ($schedule['status'] === 'ONGOING')
                                 <span class="inline-block px-4 py-2 text-xs font-semibold bg-[#FFECB9] text-[#C38F00]">
                                     Ongoing
                                 </span>
@@ -44,7 +44,7 @@
                         <div class="space-y-1.5 text-xs text-[#333333] font-medium">
                             <div class="flex items-center gap-2">
                                 <span class="material-symbols-outlined text-base text-[#333333]">calendar_month</span>
-                                <span>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $schedule['date'])->format('j F Y') }}</span>
+                                <span>{{ \Carbon\Carbon::parse($schedule['date'])->format('j F Y') }}</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <span class="material-symbols-outlined text-base text-[#333333]">location_on</span>
@@ -55,7 +55,7 @@
 
                     <div class="pl-2 pt-3 mt-4 border-t border-gray-200">
                         <p class="text-xs font-medium text-[#333333]">
-                            @if ($schedule['status'] === 'Ongoing')
+                            @if (strtoupper($schedule['status']) === 'ONGOING')
                                 1 Student Competing
                             @else
                                 1 Student Registered

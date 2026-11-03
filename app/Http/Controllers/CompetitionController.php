@@ -6,6 +6,7 @@ use App\Http\Requests\Competition\StoreRequest;
 use App\Http\Requests\Competition\UpdateRequest;
 use App\Models\Competition;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CompetitionController extends Controller
 {
@@ -13,7 +14,7 @@ class CompetitionController extends Controller
     {
         $title = "SchoolChamp - Competitions";
         $competitions = Competition::latest()->paginate(5);
-        
+
         return view('competitions.index', [
             'title' => $title,
             'competitions' => $competitions
@@ -31,9 +32,13 @@ class CompetitionController extends Controller
 
     public function store(StoreRequest $request)
     {
-        $validatedRequests = $request->validated();
+        $validatedData = $request->validated();
 
-        Competition::create($validatedRequests);
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $request->file('image')->store('competitions', 'public');
+        }
+
+        Competition::create($validatedData);
 
         return redirect()->route('competitions.index');
     }
@@ -60,9 +65,22 @@ class CompetitionController extends Controller
 
     public function update(Competition $competition, UpdateRequest $request)
     {
-        $validatedRequests = $request->validated();
+        $validatedData = $request->validated();
 
-        $competition->update($validatedRequests);
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada di storage
+            if ($competition->image && Storage::disk('public')->exists($competition->image)) {
+                Storage::disk('public')->delete($competition->image);
+            }
+
+            $validatedData['image'] = $request->file('image')->store('competitions', 'public');
+        } else {
+            // Jika tidak ada upload gambar baru, abaikan/hapus key image dari array 
+            // agar gambar lama di database tidak tertimpa jadi null/kosong
+            unset($validatedData['image']);
+        }
+
+        $competition->update($validatedData);
 
         return redirect()->route('competitions.index');
     }

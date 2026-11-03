@@ -9,7 +9,8 @@
             <p class="text-sm">Update event details, schedule, or registration status.</p>
         </div>
 
-        <form action="{{ route('competitions.update', ['competition' => $competition->id]) }}" method="POST">
+        <form action="{{ route('competitions.update', ['competition' => $competition->id]) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -20,8 +21,8 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         COMPETITION NAME
                     </label>
-                    <input value="{{ old('event', $competition->event) }}" type="text" name="event" value="WorldSkills Shanghai 2026"
-                        placeholder="e.g National Science Olympiad 2026"
+                    <input value="{{ old('event', $competition->event) }}" type="text" name="event"
+                        value="WorldSkills Shanghai 2026" placeholder="e.g National Science Olympiad 2026"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
                 </div>
@@ -30,8 +31,8 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         FIELD
                     </label>
-                    <input value="{{ old('field', $competition->field) }}" type="text" name="field" value="IT Software Solutions for Business"
-                        placeholder="e.g IT Software Solutions for Business"
+                    <input value="{{ old('field', $competition->field) }}" type="text" name="field"
+                        value="IT Software Solutions for Business" placeholder="e.g IT Software Solutions for Business"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
                 </div>
@@ -75,7 +76,8 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         LOCATION
                     </label>
-                    <input value="{{ old('location', $competition->location) }}" type="text" name="location" id="location" placeholder="e.g Shanghai, China"
+                    <input value="{{ old('location', $competition->location) }}" type="text" name="location" id="location"
+                        placeholder="e.g Shanghai, China"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
                 </div>
@@ -84,8 +86,20 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         ACHIEVEMENT
                     </label>
-                    <input value="{{ old('achievement', $competition->achievement) }}" type="text" name="achievement" id="achievement" placeholder="e.g 1st Winner - Gold Medal"
+                    <input value="{{ old('achievement', $competition->achievement) }}" type="text" name="achievement"
+                        id="achievement" placeholder="e.g 1st Winner - Gold Medal"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
+                        IMAGE
+                    </label>
+                    <input value="{{ old('image', $competition->image) }}" type="file" name="image" id="image"
+                        class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition">
+                    @error('image')
+                        <span class="py-2 text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -96,7 +110,8 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         PARTICIPANT NAME
                     </label>
-                    <input value="{{ old('participant', $competition->participant) }}" type="text" name="participant" placeholder="e.g Klain Xee"
+                    <input value="{{ old('participant', $competition->participant) }}" type="text" name="participant"
+                        placeholder="e.g Klain Xee"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
                 </div>

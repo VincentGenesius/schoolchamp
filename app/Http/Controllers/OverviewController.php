@@ -10,6 +10,8 @@ class OverviewController extends Controller
 {
     public function index()
     {
+        $title = "SchoolChamp - Overview";
+
         $competitions = Competition::all();
 
         $recentCompetitions = Competition::latest()->take(3)->get();
@@ -26,7 +28,7 @@ class OverviewController extends Controller
             ->get();
 
         return view('overview.index', [
-            'title' => 'Overview',
+            'title' => $title,
             'competitions' => $competitions,
             'recentCompetitions' => $recentCompetitions,
             'totalFinished' => $totalFinished,

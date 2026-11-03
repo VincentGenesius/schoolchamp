@@ -34,10 +34,4 @@ Route::name('schedules.')->prefix('schedules')->group(function () {
 
 Route::name('achievements.')->prefix('achievements')->group(function () {
     Route::get('/', [AchievementController::class, 'index'])->name('index');
-    Route::get('/create', [AchievementController::class, 'create'])->name('create');
-    Route::get('/{id}/edit', [AchievementController::class, 'edit'])->name('edit');
-    Route::get('/{id}', [AchievementController::class, 'show'])->name('show');
-    Route::post('/', [AchievementController::class, 'store'])->name('store');
-    Route::put('/{id?}', [AchievementController::class, 'update'])->name('update');
-    Route::delete('/{id}', [AchievementController::class, 'destroy'])->name('destroy');
 });
