@@ -68,15 +68,12 @@ class CompetitionController extends Controller
         $validatedData = $request->validated();
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada di storage
             if ($competition->image && Storage::disk('public')->exists($competition->image)) {
                 Storage::disk('public')->delete($competition->image);
             }
 
             $validatedData['image'] = $request->file('image')->store('competitions', 'public');
         } else {
-            // Jika tidak ada upload gambar baru, abaikan/hapus key image dari array 
-            // agar gambar lama di database tidak tertimpa jadi null/kosong
             unset($validatedData['image']);
         }
 

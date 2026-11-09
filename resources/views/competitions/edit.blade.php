@@ -95,7 +95,21 @@
                     <label class="block text-xs font-semibold text-[#990000] tracking-wider uppercase mb-2">
                         IMAGE
                     </label>
-                    <input value="{{ old('image', $competition->image) }}" type="file" name="image" id="image"
+                    
+                    @if($competition->image)
+        <div class="mb-2 flex items-center gap-3">
+            <img src="{{ asset('storage/' . $competition->image) }}" alt="Current Image" class="w-16 h-16 object-cover rounded border">
+            <div>
+                <p class="text-xs text-gray-500 font-medium">Current File:</p>
+                <!-- Menampilkan nama file asli dari database -->
+                <p class="text-xs text-gray-700 font-bold truncate max-w-xs">
+                    {{ basename($competition->image) }}
+                </p>
+            </div>
+        </div>
+    @endif
+
+                    <input type="file" name="image" id="image"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition">
                     @error('image')
                         <span class="py-2 text-red-500">{{ $message }}</span>
