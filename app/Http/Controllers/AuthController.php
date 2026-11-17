@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,12 +16,22 @@ class AuthController extends Controller
         ]);
     }
 
-    public function loginPost(LoginRequest $request)
+    public function loginPost(Request $request)
     {
-        $request->authenticate();
-        $request->session()->regenerate();
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
 
-        return redirect()->intended(route('overviews.index'));
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
+
+            return redirect()->route('overviews.index');
+        }
+
+        return back()->withErrors([
+            'email' => 'Email or password wrong.',
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)

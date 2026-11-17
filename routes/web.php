@@ -12,7 +12,7 @@ Route::middleware('guest')->prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'loginPost'])->name('login-post');
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::name('overviews.')->prefix('overviews')->group(function () {

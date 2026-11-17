@@ -6,16 +6,18 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class EnsureUserIsAdmin
+class CheckByRole
 {
     /**
      * Handle an incoming request.
      *
      * @param  Closure(Request): (Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, string $role): Response
     {
-        abort_unless($request->user()?->role === 'admin', 403);
+        if ($request->user()->role !== $role) {
+            abort(403);
+        }
 
         return $next($request);
     }
