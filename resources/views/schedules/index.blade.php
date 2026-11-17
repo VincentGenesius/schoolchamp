@@ -8,7 +8,7 @@
     <div class="flex justify-between items-center">
         <form action="#" method="GET" class="relative">
             <input type="search" name="search" placeholder="Search competition..."
-                class="w-249 pl-4 pr-4 py-2 border border-[#AAAAAA] text-sm focus:outline-none focus:ring-2 focus:ring-gray-200">
+                class="w-250 pl-4 pr-4 py-2 border border-[#AAAAAA] text-sm focus:outline-none focus:ring-2 focus:ring-gray-200">
         </form>
 
         <button class="flex gap-1 bg-[#DADAFF] text-[#333333] px-4 py-2 hover:bg-[#b8b8d1] transition">
