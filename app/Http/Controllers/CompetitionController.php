@@ -10,10 +10,21 @@ use Illuminate\Support\Facades\Storage;
 
 class CompetitionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = "SchoolChamp - Competitions";
-        $competitions = Competition::latest()->paginate(5);
+
+        $query = Competition::query();
+
+        if ($request->filled('search')) {
+            $query->where('event', 'like', '%' . $request->search . '%');
+        }
+
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
+        $competitions = $query->latest()->paginate(10)->withQueryString();
 
         return view('competitions.index', [
             'title' => $title,

@@ -27,7 +27,7 @@ class OverviewController extends Controller
             ->take(3)
             ->get();
 
-        return view('overview.index', [
+        return view('overviews.index', [
             'title' => $title,
             'competitions' => $competitions,
             'recentCompetitions' => $recentCompetitions,

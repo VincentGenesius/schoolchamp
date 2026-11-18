@@ -5,15 +5,30 @@
 @section('content')
     <h1 class="text-[#990000] text-xl font-bold mb-2">Competitions ({{ $competitions->count() }})</h1>
 
-    <div class="flex justify-between items-center">
-        <form action="#" method="GET" class="relative">
-            <input type="search" name="search" placeholder="Search competition..." class="w-205 pl-4 pr-4 py-2 border border-[#AAAAAA] text-sm focus:outline-none focus:ring-2 focus:ring-gray-200">
-        </form>
+    <div class="flex justify-between items-center gap-2">
+        <form action="" method="GET" class="flex items-center gap-2 grow">
+            <!-- Input Search -->
+            <div class="relative grow">
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Search competition..." 
+                    class="w-full pl-4 pr-4 py-2 border border-[#AAAAAA] text-sm focus:outline-none focus:ring-2 focus:ring-gray-200 bg-white">
+            </div>
 
-        <button class="flex gap-1 bg-[#DADAFF] text-[#333333] px-4 py-2 hover:bg-[#b8b8d1] transition">
-            <span class="material-symbols-outlined">filter_alt</span>
-            <h1 class="font-medium">Filter</h1>
-        </button>
+            <!-- Dropdown Filter Status -->
+            <div class="relative flex items-center">
+                <select name="status" onchange="this.form.submit()" class="border border-[#AAAAAA] pl-4 pr-10 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-gray-200 text-[#333333] appearance-none cursor-pointer">
+                    <option value="">All Status</option>
+                    @foreach (\App\Enums\StatusCompetitionEnum::cases() as $status)
+                        <option value="{{ $status->value }}" {{ request('status') == $status->value ? 'selected' : '' }}>
+                            {{ $status->label() }}
+                        </option>
+                    @endforeach
+                </select>
+
+                <span class="material-symbols-outlined absolute right-3 text-gray-400 pointer-events-none text-xl">
+                    keyboard_arrow_down
+                </span>
+            </div>
+        </form>
 
         <a href="{{ route('competitions.create') }}" class="bg-[#990000] text-white font-medium px-4 py-2 hover:bg-[#700202] transition">+ Add Competition</a>
     </div>
