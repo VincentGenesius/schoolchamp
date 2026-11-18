@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <div class="mx-auto w-full max-w-2xl px-12 mt-24">
+    <div class="mx-auto w-full max-w-2xl px-12 mt-30">
         <div class="flex flex-col mb-4">
             <div class="flex justify-center py-1">
                 <p class="text-center text-xs text-[#990000] bg-red-300 font-semibold px-4 py-1">ACCOUNT ACCESS</p>
@@ -32,20 +32,6 @@
                     <input type="password" name="password" id="password" placeholder="Enter your password"
                         class="w-full bg-[#F3F3FF] border border-gray-200 px-4 py-3 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#990000] focus:bg-white transition"
                         required>
-                </div>
-
-                <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center">
-                        <input id="remember_me" type="checkbox" name="remember"
-                            class="w-4 h-4 text-[#990000] border-gray-300 rounded focus:ring-[#990000]">
-                        <label for="remember_me" class="ml-2 text-xs font-medium text-gray-600">
-                            Remember me
-                        </label>
-                    </div>
-
-                    <a href="#" class="text-xs font-semibold text-[#990000] hover:underline">
-                        Forgot your password?
-                    </a>
                 </div>
 
                 <button type="submit"
